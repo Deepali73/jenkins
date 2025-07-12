@@ -101,29 +101,29 @@
 </html>
 
   <div class="section">
-    <h2>🎯 Step 1: IDEA – “Socho, Samjho aur Likho” 💡</h2>
+    <h2> Step 1: IDEA – “Socho, Samjho aur Likho” </h2>
     <p>Har kaam ki shuruaat hoti hai ek soch se. Pehle decide karo:</p>
     <ul>
       <li>App kis problem ko solve karega?</li>
       <li>Web app, API ya mobile app?</li>
       <li>Kya feature honge?</li>
     </ul>
-    <p>🤔 <strong>Idea pakka karo... fir code chalu karo!</strong></p>
+    <p> <strong>Idea pakka karo... fir code chalu karo!</strong></p>
   </div>
 
   <div class="section">
-    <h2>🔥 Step 2: “Code Ko Chamkao” 💻</h2>
+    <h2> Step 2: “Code Ko Chamkao” </h2>
     <p>Apna app ka code likho kisi bhi language mein (Node.js, Python, React, Django, etc.)</p>
     <pre><code>git init
 git add .
 git commit -m "initial version"
 git remote add origin &lt;GitHub ka link&gt;
 git push -u origin main</code></pre>
-    <p>📤 <strong>Bas! Ab tumhara code gaya GitHub pe – safely stored, globally accessible.</strong></p>
+    <p> <strong>Bas! Ab tumhara code gaya GitHub pe – safely stored, globally accessible.</strong></p>
   </div>
 
   <div class="section">
-    <h2>🧰 Step 3: “Jenkins Ko Kaam Pe Lagao” 🛠️</h2>
+    <h2> Step 3: “Jenkins Ko Kaam Pe Lagao” </h2>
     <ul>
       <li>Jenkins UI pe jao → New Item → Freestyle Project banao.</li>
       <li>GitHub repo ka URL paste karo (SCM section).</li>
@@ -131,12 +131,27 @@ git push -u origin main</code></pre>
       <li>Save karo.</li>
     </ul>
     <div class="highlight">
-      💡 <strong>SCM</strong> ka matlab hota hai <em>Source Code Management</em> – yahan hum GitHub use kar rahe hain.
+       <strong>SCM</strong> ka matlab hota hai <em>Source Code Management</em> – yahan hum GitHub use kar rahe hain.
     </div>
   </div>
 
+<div class="section">
+  <h2> Step 4: “Test.py Toh Banana Hi Padega!” </h2>
+  <p>Jenkins usually looks for some kind of test before build. That's why:</p>
+  <ul>
+    <li> Create a basic <code>test.py</code> file in your repo</li>
+    <li>Install <code>pytest</code> – Jenkins uses it to check if your code is working</li>
+  </ul>
+  <pre><code>pip install pytest</code></pre>
+  <pre><code># test.py example
+def test_pass():
+    assert True</code></pre>
+  <p>⚠️ <strong>Agar yeh test file nahi hai toh Jenkins build fail karega ya warning de sakta hai!</strong></p>
+</div>
+
+
   <div class="section">
-    <h2>🧪 Step 4: “Manual Build? Ek Baar Try Toh Karo!” 🧪</h2>
+    <h2> Step 5: “Manual Build? Ek Baar Try Toh Karo!” </h2>
     <p>Jenkins dashboard pe jaake <strong>“Build Now”</strong> pe click karo. Yeh check karega:</p>
     <ul>
       <li>GitHub se code fetch ho raha hai ya nahi</li>
@@ -146,52 +161,52 @@ git push -u origin main</code></pre>
   </div>
 
   <div class="section">
-    <h2>🐳 Step 5: “Dockerize It Like A Pro” 🚢</h2>
+    <h2> Step 6: “Dockerize It Like A Pro” </h2>
     <pre><code>sudo docker build -t myapp:latest .
 sudo docker run -d -p 5000:5000 myapp:latest</code></pre>
     <p>⚠️ <strong>Sudo zaruri hai, warna Jenkins permissions ka bawaal kar dega.</strong></p>
   </div>
 
 <div class="section">
-    <h2>🧹 Docker Cleanup Before Rebuild</h2>
+    <h2> Docker Cleanup Before Rebuild</h2>
     <p>Agar tumhara Docker OS ka naam <code>os1</code> hai, toh usko delete karne ke liye sabse pehle yeh command chalao:</p>
     <pre><code>sudo docker rm -f os1</code></pre>
     <p>⚠️ <strong>Yeh step jaruri hai</strong> taaki naye build ke waqt conflict na ho. Ab uske baad docker image build/run commands lagao:</p>
     <pre><code>sudo docker build -t os1 .
 sudo docker run -d --name os1 -p 5000:5000 os1</code></pre>
-    <p><strong>🔥 Yeh combo Jenkins ke "Execute Shell" mein add karo. Jab bhi build trigger hoga, pehle OS delete hoga, fir naya build aur run hoga – bina error ke.</strong></p>
+    <p><strong> Yeh combo Jenkins ke "Execute Shell" mein add karo. Jab bhi build trigger hoga, pehle OS delete hoga, fir naya build aur run hoga – bina error ke.</strong></p>
   </div>
 
   <div class="section">
-    <h2>🔄 Step 7: “Automation ka Real Magic – Triggers ✨”</h2>
+    <h2> Step 7: “Automation ka Real Magic – Triggers ”</h2>
     <ul>
       <li>Jenkins job → Configure</li>
       <li>Build Triggers → ✅ "Poll SCM"</li>
       <li>CRON expression:</li>
     </ul>
     <pre><code>*/1 * * * *</code></pre>
-    <p>💣 Jaise hi change aaya – Jenkins <strong>automatically build karega!</strong></p>
+    <p> Jaise hi change aaya – Jenkins <strong>automatically build karega!</strong></p>
   </div>
 
   <div class="section">
-    <h2>💡 Ab Pura Flow Samjho (with Feel):</h2>
+    <h2> Ab Pura Flow Samjho (with Feel):</h2>
     <p><strong>IDEA → CODE → GITHUB PUSH → JENKINS (Main branch select) → DOCKER BUILD + CLEANUP → AUTO-TRIGGER → DEPLOY</strong></p>
     <p>Sab kuch <strong>ekdum fast, smooth aur without manual effort!</strong></p>
   </div>
 
   <div class="section">
-    <h2>🤝 Yeh Setup Kiske Kaam Aayega?</h2>
+    <h2> Yeh Setup Kiske Kaam Aayega?</h2>
     <ul>
       <li>👨‍💻 Developers – Code karo, baaki Jenkins sambhalega.</li>
       <li>🧪 Testers – Build updated version automatically milega.</li>
       <li>🎓 Students – Projects fast banenge, impressive bhi.</li>
       <li>🏢 Startups – Fast delivery, fewer bugs, zero downtime.</li>
-      <li>😴 Lazy Engineers – Raat ko bhi deploy hoga 🤣</li>
+      <li>😴 Lazy Engineers – Raat ko bhi deploy hoga </li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>🔐 Tools Ki List (Quick Recap):</h2>
+    <h2>Tools Ki List (Quick Recap):</h2>
     <table>
       <tr><th>Tool</th><th>Use Case</th></tr>
       <tr><td>GitHub</td><td>Code store karne ke liye</td></tr>
@@ -202,14 +217,14 @@ sudo docker run -d --name os1 -p 5000:5000 os1</code></pre>
   </div>
 
     <div class="section">
-    <h2>🏁 The Real DevOps Flow Ka Magic</h2>
+    <h2> The Real DevOps Flow Ka Magic</h2>
     <p><strong>CI/CD pipeline = Code + Auto Build + Auto Deploy + Clean Containers + Time-based Auto Triggers</strong></p>
-    <p>Tum so rahe ho ya chai pee rahe ho – <strong>Jenkins toh kaam pe laga hi rahega 💼☕🚀</strong></p>
+    <p>Tum so rahe ho ya chai pee rahe ho – <strong>Jenkins toh kaam pe laga hi rahega</strong></p>
   </div>
 
   
     <div class="footer">
-    ✨ DevOps karna hai toh swag se karo… Na ki manually har build button daba ke 😎🔥<br>
+    ✨ DevOps karna hai toh swag se karo… Na ki manually har build button daba ke 🔥<br>
     ❤️ Deepali Verma
   </div>
 
