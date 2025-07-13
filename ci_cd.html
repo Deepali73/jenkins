@@ -146,7 +146,7 @@ git push -u origin main</code></pre>
   <pre><code># test.py example
 def test_pass():
     assert True</code></pre>
-  <p>⚠️ <strong>Agar yeh test file nahi hai toh Jenkins build fail karega ya warning de sakta hai!</strong></p>
+  <p><strong>Agar yeh test file nahi hai toh Jenkins build fail karega ya warning de sakta hai!</strong></p>
 </div>
 
 
@@ -157,21 +157,21 @@ def test_pass():
       <li>GitHub se code fetch ho raha hai ya nahi</li>
       <li>Build sahi chal raha hai ya nahi</li>
     </ul>
-    <p>⚠️ Error aaye? Console output dekho. Mostly SCM ya repo access ka issue hota hai.</p>
+    <p> Error aaye? Console output dekho. Mostly SCM ya repo access ka issue hota hai.</p>
   </div>
 
   <div class="section">
     <h2> Step 6: “Dockerize It Like A Pro” </h2>
     <pre><code>sudo docker build -t myapp:latest .
 sudo docker run -d -p 5000:5000 myapp:latest</code></pre>
-    <p>⚠️ <strong>Sudo zaruri hai, warna Jenkins permissions ka bawaal kar dega.</strong></p>
+    <p> <strong>Sudo zaruri hai, warna Jenkins permissions ka bawaal kar dega.</strong></p>
   </div>
 
 <div class="section">
     <h2> Docker Cleanup Before Rebuild</h2>
     <p>Agar tumhara Docker OS ka naam <code>os1</code> hai, toh usko delete karne ke liye sabse pehle yeh command chalao:</p>
     <pre><code>sudo docker rm -f os1</code></pre>
-    <p>⚠️ <strong>Yeh step jaruri hai</strong> taaki naye build ke waqt conflict na ho. Ab uske baad docker image build/run commands lagao:</p>
+    <p> <strong>Yeh step jaruri hai</strong> taaki naye build ke waqt conflict na ho. Ab uske baad docker image build/run commands lagao:</p>
     <pre><code>sudo docker build -t os1 .
 sudo docker run -d --name os1 -p 5000:5000 os1</code></pre>
     <p><strong> Yeh combo Jenkins ke "Execute Shell" mein add karo. Jab bhi build trigger hoga, pehle OS delete hoga, fir naya build aur run hoga – bina error ke.</strong></p>
@@ -181,7 +181,7 @@ sudo docker run -d --name os1 -p 5000:5000 os1</code></pre>
     <h2> Step 7: “Automation ka Real Magic – Triggers ”</h2>
     <ul>
       <li>Jenkins job → Configure</li>
-      <li>Build Triggers → ✅ "Poll SCM"</li>
+      <li>Build Triggers → "Poll SCM"</li>
       <li>CRON expression:</li>
     </ul>
     <pre><code>*/1 * * * *</code></pre>
@@ -197,11 +197,11 @@ sudo docker run -d --name os1 -p 5000:5000 os1</code></pre>
   <div class="section">
     <h2> Yeh Setup Kiske Kaam Aayega?</h2>
     <ul>
-      <li>👨‍💻 Developers – Code karo, baaki Jenkins sambhalega.</li>
-      <li>🧪 Testers – Build updated version automatically milega.</li>
-      <li>🎓 Students – Projects fast banenge, impressive bhi.</li>
-      <li>🏢 Startups – Fast delivery, fewer bugs, zero downtime.</li>
-      <li>😴 Lazy Engineers – Raat ko bhi deploy hoga </li>
+      <li> Developers – Code karo, baaki Jenkins sambhalega.</li>
+      <li> Testers – Build updated version automatically milega.</li>
+      <li> Students – Projects fast banenge, impressive bhi.</li>
+      <li> Startups – Fast delivery, fewer bugs, zero downtime.</li>
+      <li> Lazy Engineers – Raat ko bhi deploy hoga </li>
     </ul>
   </div>
 
@@ -224,7 +224,7 @@ sudo docker run -d --name os1 -p 5000:5000 os1</code></pre>
 
   
     <div class="footer">
-    ✨ DevOps karna hai toh swag se karo… Na ki manually har build button daba ke 🔥<br>
+    ✨ DevOps karna hai toh swag se karo… Na ki manually har build button daba ke <br>
     ❤️ Deepali Verma
   </div>
 
